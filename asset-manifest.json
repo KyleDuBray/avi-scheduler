@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/avi-scheduler/static/css/main.1dbbdb34.chunk.css",
+    "main.js": "/avi-scheduler/static/js/main.bd99c9df.chunk.js",
+    "main.js.map": "/avi-scheduler/static/js/main.bd99c9df.chunk.js.map",
+    "runtime-main.js": "/avi-scheduler/static/js/runtime-main.de0f2ab3.js",
+    "runtime-main.js.map": "/avi-scheduler/static/js/runtime-main.de0f2ab3.js.map",
+    "static/js/2.f028b3fa.chunk.js": "/avi-scheduler/static/js/2.f028b3fa.chunk.js",
+    "static/js/2.f028b3fa.chunk.js.map": "/avi-scheduler/static/js/2.f028b3fa.chunk.js.map",
+    "index.html": "/avi-scheduler/index.html",
+    "static/css/main.1dbbdb34.chunk.css.map": "/avi-scheduler/static/css/main.1dbbdb34.chunk.css.map",
+    "static/js/2.f028b3fa.chunk.js.LICENSE.txt": "/avi-scheduler/static/js/2.f028b3fa.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.de0f2ab3.js",
+    "static/js/2.f028b3fa.chunk.js",
+    "static/css/main.1dbbdb34.chunk.css",
+    "static/js/main.bd99c9df.chunk.js"
+  ]
+}
