@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/avi-scheduler/static/css/main.141a5114.chunk.css",
-    "main.js": "/avi-scheduler/static/js/main.d4283192.chunk.js",
-    "main.js.map": "/avi-scheduler/static/js/main.d4283192.chunk.js.map",
+    "main.css": "/avi-scheduler/static/css/main.de9b9ddc.chunk.css",
+    "main.js": "/avi-scheduler/static/js/main.4d930a34.chunk.js",
+    "main.js.map": "/avi-scheduler/static/js/main.4d930a34.chunk.js.map",
     "runtime-main.js": "/avi-scheduler/static/js/runtime-main.de0f2ab3.js",
     "runtime-main.js.map": "/avi-scheduler/static/js/runtime-main.de0f2ab3.js.map",
-    "static/js/2.f028b3fa.chunk.js": "/avi-scheduler/static/js/2.f028b3fa.chunk.js",
-    "static/js/2.f028b3fa.chunk.js.map": "/avi-scheduler/static/js/2.f028b3fa.chunk.js.map",
+    "static/js/2.75e9f965.chunk.js": "/avi-scheduler/static/js/2.75e9f965.chunk.js",
+    "static/js/2.75e9f965.chunk.js.map": "/avi-scheduler/static/js/2.75e9f965.chunk.js.map",
     "index.html": "/avi-scheduler/index.html",
-    "static/css/main.141a5114.chunk.css.map": "/avi-scheduler/static/css/main.141a5114.chunk.css.map",
-    "static/js/2.f028b3fa.chunk.js.LICENSE.txt": "/avi-scheduler/static/js/2.f028b3fa.chunk.js.LICENSE.txt"
+    "static/css/main.de9b9ddc.chunk.css.map": "/avi-scheduler/static/css/main.de9b9ddc.chunk.css.map",
+    "static/js/2.75e9f965.chunk.js.LICENSE.txt": "/avi-scheduler/static/js/2.75e9f965.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.de0f2ab3.js",
-    "static/js/2.f028b3fa.chunk.js",
-    "static/css/main.141a5114.chunk.css",
-    "static/js/main.d4283192.chunk.js"
+    "static/js/2.75e9f965.chunk.js",
+    "static/css/main.de9b9ddc.chunk.css",
+    "static/js/main.4d930a34.chunk.js"
   ]
 }
