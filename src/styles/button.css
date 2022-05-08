@@ -1,0 +1,126 @@
+/* button {
+  display: inline-block;
+  padding: 0.2em 1.45em;
+  margin: 0.1em;
+  border: 0.15em solid #cccccc;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #000000;
+  background-color: #cccccc;
+  text-align: center;
+  position: relative;
+  outline: none;
+}
+
+button:hover {
+  border-color: #7a7a7a;
+  cursor: pointer;
+} */
+
+/**************************
+NORMALIZE
+*************************** */
+
+button {
+  font-family: inherit; /* For all browsers */
+  font-size: 100%; /* For all browsers */
+  line-height: 1.15; /* For all browsers */
+  margin: 0; /* Firefox and Safari have margin */
+  overflow: visible; /* Edge hides overflow */
+  text-transform: none; /* Firefox inherits text-transform */
+  -webkit-appearance: button; /* Safari otherwise prevents some styles */
+}
+
+button::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**************************
+Focus styles via keyboard using 
+*************************** */
+
+/* Fixing the Safari bug for `<button>`s overflow */
+.button-content {
+  position: relative;
+}
+
+:focus > .button-content {
+  box-shadow: 0 0 3px 7px lime;
+  outline: none;
+}
+
+/* Removing the focus ring styles specifically for button in Firefox */
+button:not(:-moz-focusring):focus > .button-content {
+  box-shadow: none;
+}
+
+/* Removing default outline only after we've added our custom one */
+.button-primary:focus,
+.button-content:focus {
+  outline: none;
+}
+
+/**************************
+Add Link Button
+*************************** */
+.button-primary {
+  height: fit-content;
+  margin: 4px 10px;
+}
+.button-primary,
+.button-content {
+  border: 0;
+  border-radius: 0.25rem;
+  background: #11fb3471;
+  cursor: pointer;
+  transition: all 0.2s;
+  height: 26.4px;
+  width: 80px;
+}
+
+.button-primary .button-content {
+  padding: 2px;
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 5px 10px rgb(71, 71, 71);
+}
+
+.button-primary:active {
+  outline: none;
+  border: none;
+  text-decoration: none;
+  transform: translateY(1px);
+}
+
+.button-primary .button-content:focus {
+  text-decoration: none;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  background-color: #11fb3471;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
