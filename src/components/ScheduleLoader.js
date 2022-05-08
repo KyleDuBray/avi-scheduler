@@ -55,8 +55,8 @@ class ScheduleLoader extends React.Component {
           cur.firstName = val;
           firstNameNext = false;
         } else if (descriptionNext && val !== "Ghost" && val !== "Confrmd.") {
-          if (val === "Previous Page") {
-            cur.description = "";
+          if (val === "Previous Page" || val == "Next Page") {
+            cur.description = "***";
           } else {
             cur.description = val;
             descriptionNext = false;
