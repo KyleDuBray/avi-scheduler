@@ -26,6 +26,9 @@ class ScheduleLoader extends React.Component {
     }
   };
 
+  // Maps through stream of string values derived from schedule html
+  // document, and filters/categorizes accordingly.
+  // Sets state.appts to array of appointment objects used to populate table.
   mapScheduleArray = (scheduleArray) => {
     let lastNameNext = false,
       firstNameNext = false,
@@ -34,11 +37,13 @@ class ScheduleLoader extends React.Component {
       cur = {};
 
     scheduleArray.forEach((rawval) => {
+      // filter html tags
       const val = rawval.replace(/&nbsp;/g, " ");
       // Tests for having at least one character or is phone number
       if (/([a-zA-Z])+([ -~])*/.test(val) || isPhoneNumber(val)) {
         console.log(val);
 
+        // If last name next and value is not a room designation
         if (
           lastNameNext &&
           val.slice(0, 2) !== "RM" &&
@@ -46,77 +51,78 @@ class ScheduleLoader extends React.Component {
           val !== "DUN" &&
           val !== "CHI"
         ) {
+          // - If last name next and a time is given, set current time.
+          //    lastNameNext is still true.
           if (/^([0-1]?[0-9]|2[0-3]):[0-5][0-9][a-z]$/.test(val)) {
             cur.time = val.replace(":", "").slice(0, -1);
             lastNameNext = true;
-          } else {
+          }
+          // - else set last name (value was not of time format)
+          else {
             cur.lastName = val;
             lastNameNext = false;
           }
-        } else if (firstNameNext) {
+        }
+        // else if first name next
+        else if (firstNameNext) {
           cur.firstName = val;
           firstNameNext = false;
-        } else if (
+        }
+        // else if description next and val not equal to
+        // garbage values
+        else if (
           descriptionNext &&
           val !== "Ghost" &&
           val !== "Confrmd." &&
           val !== "Left msg."
         ) {
+          // - If end of page
           if (val === "Previous Page" || val === "Next Page") {
             cur.description = "***";
-          } else {
-            cur.description = val;
-            descriptionNext = false;
           }
-        } else if (/^([0-1]?[0-9]|2[0-3]):[0-5][0-9][a-z]$/.test(val)) {
-          // ^Tests for time format
+          // - else if value is of time format, push early, as no
+          //   description was provided.
+          //   also need to use the currently read time as time for next
+          //   appointment object
+          else {
+            if (/^([0-1]?[0-9]|2[0-3]):[0-5][0-9][a-z]$/.test(val)) {
+              console.log("HIT ONE!!!!!!!!!!!");
+              cur.description = "***";
+              descriptionNext = false;
+              appointments.push(cur);
+              cur = {};
+              cur.time = val.replace(":", "").slice(0, -1);
+              lastNameNext = true;
+            }
+            // - else- real description, set to cur
+            else {
+              cur.description = val;
+              descriptionNext = false;
+            }
+          }
+        }
+        // else if time format- set it and reset lastNameNext to true
+        else if (/^([0-1]?[0-9]|2[0-3]):[0-5][0-9][a-z]$/.test(val)) {
           cur.time = val.replace(":", "").slice(0, -1);
           lastNameNext = true;
-        } else if (isPhoneNumber(val)) {
+        }
+        // else if phone number format- triggers firstNameNext to be true
+        else if (isPhoneNumber(val)) {
           cur.phone = val;
           firstNameNext = true;
-        } else if (val === "CANINE" || val === "FELINE") {
+        }
+        // if value is literally CANINE or FELINE- pass, description still needed
+        else if (val === "CANINE" || val === "FELINE") {
           descriptionNext = true;
         }
-        //console.log(cur);
+        // NEW IF- runs on each top level iteration
+        // pushes if fields full
         if (this.fieldsFull(cur)) {
           appointments.push(cur);
           cur = {};
         }
       }
     });
-
-    // scheduleArray.forEach((val) => {
-    //   // Tests for having at least one character or is phone number
-    //   if (/([a-zA-Z])+([ -~])*/.test(val) || isPhoneNumber(val)) {
-    //     console.log(val.replace(/&nbsp;/g, ' '));
-    //     if (lastNameNext) {
-    //       cur.lastName = val;
-    //       lastNameNext = false;
-    //     } else if (firstNameNext) {
-    //       cur.firstName = val;
-    //       firstNameNext = false;
-    //     } else if (descriptionNext) {
-    //       cur.description = val;
-    //       descriptionNext = false;
-    //     } else if (/^([0-1]?[0-9]|2[0-3]):[0-5][0-9][a-z]$/.test(val)) {
-    //       // Tests for time format
-    //       cur.time = val.replace(':', '').slice(0, -1);
-    //       firstNameNext = true;
-    //     } else if (isPhoneNumber(val)) {
-    //       cur.phone = val;
-    //       firstNameNext = true;
-    //     } else if (val === 'CANINE' || val === 'FELINE') {
-    //       descriptionNext = true;
-    //     } else if (val.slice(0, 2) === 'RM') {
-    //       lastNameNext = true;
-    //     }
-    //     if (this.fieldsFull(cur)) {
-    //       appointments.push(cur);
-    //       cur = {};
-    //     }
-    //   }
-    // });
 
     this.setState({ appts: appointments });
   };
