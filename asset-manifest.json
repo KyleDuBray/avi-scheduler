@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/avi-scheduler/static/css/main.5c89e957.css",
-    "main.js": "/avi-scheduler/static/js/main.57528e51.js",
+    "main.js": "/avi-scheduler/static/js/main.dfbbdcb0.js",
     "index.html": "/avi-scheduler/index.html",
     "main.5c89e957.css.map": "/avi-scheduler/static/css/main.5c89e957.css.map",
-    "main.57528e51.js.map": "/avi-scheduler/static/js/main.57528e51.js.map"
+    "main.dfbbdcb0.js.map": "/avi-scheduler/static/js/main.dfbbdcb0.js.map"
   },
   "entrypoints": [
     "static/css/main.5c89e957.css",
-    "static/js/main.57528e51.js"
+    "static/js/main.dfbbdcb0.js"
   ]
 }
