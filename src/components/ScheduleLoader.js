@@ -40,7 +40,12 @@ class ScheduleLoader extends React.Component {
       // filter html tags
       const val = rawval.replace(/&nbsp;/g, " ");
       // Tests for having at least one character or is phone number
-      if (/([a-zA-Z])+([ -~])*/.test(val) || isPhoneNumber(val)) {
+      // or is empty parentheses, indicating missing phone number
+      if (
+        /([a-zA-Z])+([ -~])*/.test(val) ||
+        isPhoneNumber(val) ||
+        val.includes("()")
+      ) {
         console.log(val);
 
         // If last name next and value is not a room designation
@@ -107,8 +112,9 @@ class ScheduleLoader extends React.Component {
           cur.time = val.replace(":", "").slice(0, -1);
           lastNameNext = true;
         }
-        // else if phone number format- triggers firstNameNext to be true
-        else if (isPhoneNumber(val)) {
+        // else if phone number format or includes empty () - indicating phone number missing
+        // - triggers firstNameNext to be true
+        else if (isPhoneNumber(val) || val.includes("()")) {
           cur.phone = val;
           firstNameNext = true;
         }
