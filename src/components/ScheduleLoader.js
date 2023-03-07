@@ -60,7 +60,8 @@ class ScheduleLoader extends React.Component {
           val !== "RKS" &&
           val !== "EH" &&
           val !== "JF" &&
-          val !== "SES"
+          val !== "SES" &&
+          val !== "FNR"
         ) {
           // - If last name next and a time is given, set current time.
           //    lastNameNext is still true.
